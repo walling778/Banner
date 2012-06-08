@@ -22,14 +22,14 @@
 		A48088E2158157EE0090689B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A48088E4158157EE0090689B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A48088E6158157EE0090689B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A48088EA158157EE0090689B /* Banner-Info.plist */ = {isa = PBXFileReference; path = "Banner-Info.plist"; sourceTree = "<group>"; };
+		A48088EA158157EE0090689B /* Banner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Banner-Info.plist"; sourceTree = "<group>"; };
 		A48088EC158157EE0090689B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A48088EE158157EE0090689B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A48088F0158157EE0090689B /* Banner-Prefix.pch */ = {isa = PBXFileReference; path = "Banner-Prefix.pch"; sourceTree = "<group>"; };
-		A48088F1158157EE0090689B /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		A48088F0158157EE0090689B /* Banner-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Banner-Prefix.pch"; sourceTree = "<group>"; };
+		A48088F1158157EE0090689B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A48088F2158157EE0090689B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A48088F5158157EE0090689B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		A48088F7158157EE0090689B /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		A48088F7158157EE0090689B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A48088F8158157EE0090689B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
