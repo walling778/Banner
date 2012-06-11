@@ -16,73 +16,103 @@
 
 @implementation ViewController
 
+@synthesize patientArray;
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
     return 1;
-    
 }
 
-- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    NSLog(@"count is %d",self.patientArray.count);
+    return self.patientArray.count;
 }
 
-- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *title = @"";
-    return title;
-    
-}
-
-- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil) 
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     [self configureCell:cell atIndexPath:indexPath];
+    
     return cell;
 }
-
-
-
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath 
 
 {
-    label.layer.borderWidth = 1.0;
-    CGRect frame = cell.frame;
-    frame.size.width -= frame.size.width/2;
-    label.frame = frame;
-    cell.textLabel.text = @"";
-    [cell addSubview:label];
+    cell.textLabel.text = [self.patientArray objectAtIndex:indexPath.row];
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+-(void)adjustForLandscape
 {
+    NSLog(@"Adjusting for landscape");
+    CGRect toolbar1Frame = CGRectMake(0.0, 0.0, 424.0, 44.0);
+    toolbar1.frame = toolbar1Frame;
     
+    CGRect toolbar2Frame = CGRectMake(423.0, 0.0, 602.0, 44.0);
+    toolbar2.frame = toolbar2Frame;
+    
+    CGRect viewFrame = CGRectMake(531.0, 68.0, 384.0, 502.0);
+    flexView.frame = viewFrame;
+    
+    CGRect tableFrame = CGRectMake(0.0, 42.0, 424.0, 706.0);
+    patientTable.frame = tableFrame;
 }
 
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section 
+-(void)adjustForPortrait
 {
-    return 0.0;
+    NSLog(@"Adjusting for portrait");
+
+    CGRect toolbar1Frame = CGRectMake(0.0, 0.0, 320.0, 44.0);
+    toolbar1.frame = toolbar1Frame;
+    
+    CGRect toolbar2Frame = CGRectMake(319.0, 0.0, 449.0, 44.0);
+    toolbar2.frame = toolbar2Frame;
+    
+    CGRect viewFrame = CGRectMake(351.0, 77.0, 384.0, 502.0);
+    flexView.frame = viewFrame;
+    
+    CGRect tableFrame = CGRectMake(0.0, 43.0, 320.0, 1055.0);
+    patientTable.frame = tableFrame;
 }
-
-
-
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.patientArray = [[NSMutableArray alloc] init];
+    NSArray *array = [[NSArray alloc] initWithObjects:@"Washington, George", @"Adams, John", @"Jefferson, Thomas", @"Madison, James", @"Monroe, James", @"Adams, John Quincy", @"Jackson, Andrew", nil];
+    [self.patientArray addObjectsFromArray:array];
+    patientTable.layer.borderWidth = 1.0;
+    toolbar1.layer.borderWidth = 1.0;
+    toolbar2.layer.borderWidth = 1.0;
+    
+    BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
+    
+    if (isPortrait == NO) 
+    {
+        [self adjustForLandscape];
+    }
+
+    
 }
+
 
 - (void)viewDidUnload
 {
@@ -93,6 +123,29 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+    
+
+    if (interfaceOrientation == UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) 
+    {
+        [self adjustForLandscape];
+    }
+    else 
+    {
+        [self adjustForPortrait];
+    }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:
+(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (toInterfaceOrientation == UIDeviceOrientationLandscapeLeft || toInterfaceOrientation == UIDeviceOrientationLandscapeRight) 
+    {
+        [self adjustForLandscape];
+    }
+    else 
+    {
+        [self adjustForPortrait];
+    }
 }
 
 @end

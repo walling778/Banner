@@ -15,5 +15,15 @@
 {
     IBOutlet UILabel *label;
     IBOutlet UITableView *patientTable;
+    
+    IBOutlet UIToolbar *toolbar1;
+    IBOutlet UIToolbar *toolbar2;
+    IBOutlet UIBarButtonItem *deleteButton;
+    
+    IBOutlet UIView *flexView;
+
 }
+
+@property (nonatomic, retain) NSMutableArray *patientArray;
+
 @end
