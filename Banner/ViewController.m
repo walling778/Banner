@@ -53,6 +53,15 @@
     cell.textLabel.text = [self.patientArray objectAtIndex:indexPath.row];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    firstNameField.text = @"(first)";
+    lastNameField.text = @"(last)";
+    bannerIDField.text = @"782652";
+    hospitalField.text = @"Banner";
+    physicianField.text = @"House";
+}
+
 
 -(void)adjustForLandscape
 {
@@ -85,6 +94,8 @@
     
     CGRect tableFrame = CGRectMake(0.0, 43.0, 320.0, 1055.0);
     patientTable.frame = tableFrame;
+    
+    
 }
 
 

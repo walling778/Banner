@@ -122,7 +122,7 @@
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" id="F8A-TS-HE6">
-                                <rect key="frame" x="351" y="77" width="384" height="502"/>
+                                <rect key="frame" x="334" y="44" width="384" height="502"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Ja1-VU-lSM">
@@ -206,14 +206,19 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.88410750679347827" green="0.88410750679347827" blue="0.88410750679347827" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="bannerIDField" destination="a9d-Kc-3P4" id="st7-hF-i4D"/>
+                        <outlet property="firstNameField" destination="pOX-Vf-GaX" id="ecR-h9-JRh"/>
                         <outlet property="flexView" destination="F8A-TS-HE6" id="SGJ-7H-2vl"/>
+                        <outlet property="hospitalField" destination="5An-ys-cIF" id="lAz-1c-G1q"/>
+                        <outlet property="lastNameField" destination="Ac2-H5-Og9" id="exi-UM-fXc"/>
                         <outlet property="patientTable" destination="7Qr-iZ-9T5" id="Wy0-Yc-pv3"/>
+                        <outlet property="physicianField" destination="i8j-XO-zY4" id="6GB-c1-htu"/>
                         <outlet property="searchDisplayController" destination="O7a-VK-crj" id="OA0-oW-G6h"/>
                         <outlet property="toolbar1" destination="eTU-nK-WuM" id="NHM-vZ-LxV"/>
                         <outlet property="toolbar2" destination="soT-jX-TCw" id="dOp-Cz-vBh"/>

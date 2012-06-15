@@ -20,7 +20,6 @@
 
 -(IBAction)segmentPressed:(UISegmentedControl*)sender
 {
-    NSLog(@"Yip");
     if (sender.selectedSegmentIndex == 0) 
     {
         [self showBehavioral];
@@ -39,6 +38,13 @@
 
 -(void)showHistory
 {
+
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.50];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
+    
     [self.testTable removeFromSuperview];
     self.testTable = nil;
     [self.mriView removeFromSuperview];
@@ -53,22 +59,33 @@
     scoreButton1.alpha = 0.0;
     scoreButton2.alpha = 0.0;
     scoreButton3.alpha = 0.0;
+    
+    [UIView commitAnimations];
 
 }
 
 -(void)showMRI
 {
-    [self.testTable removeFromSuperview];
-    self.testTable = nil;
+
     
     CGRect frame = CGRectMake(39.0, 120.0, 690.0, 619.0);
     UIImage *mri = [UIImage imageNamed:@"mri.jpg"];
     UIImageView *iv = [[UIImageView alloc] initWithFrame:frame];
     iv.image = mri;
+    iv.alpha = 0.0;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.50];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
     
     [self.view addSubview:iv];
     self.mriView = iv;
     
+    [self.testTable removeFromSuperview];
+    self.testTable = nil;
+    
+    self.mriView.alpha = 1.0;
     scoreLabel1.alpha = 0.0;
     scoreLabel2.alpha = 0.0;
     scoreLabel3.alpha = 0.0;
@@ -78,20 +95,32 @@
     scoreButton1.alpha = 0.0;
     scoreButton2.alpha = 0.0;
     scoreButton3.alpha = 0.0;
+    
+    [UIView commitAnimations];
 }
 
 -(void)showBehavioral
 {
     NSLog(@"showBehavioral");
-    [self.mriView removeFromSuperview];
-    self.mriView = nil;
+
     
     CGRect tableFrame = CGRectMake(0.0, 132.0, 768, 872.0);
     UITableView *behaviorTable = [[UITableView alloc] initWithFrame:tableFrame];
     behaviorTable.dataSource = self;
     behaviorTable.delegate = self;
+    behaviorTable.alpha = 0.0;
     self.testTable = behaviorTable;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.50];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
+    
     [self.view addSubview:behaviorTable];
+    
+    [self.mriView removeFromSuperview];
+    self.mriView = nil;
+    self.testTable.alpha = 1.0;
     
     scoreLabel1.alpha = 1.0;
     scoreLabel2.alpha = 1.0;
@@ -103,6 +132,7 @@
     scoreButton2.alpha = 1.0;
     scoreButton3.alpha = 1.0;
 
+    [UIView commitAnimations];
 
 
 
@@ -213,13 +243,29 @@ return @"Assessment                                            5/3/12           
             [self.view addSubview:mTable];
             self.mriTable = mTable;
         }
+        else if (segControl.selectedSegmentIndex == 0) 
+        {
+            CGRect frame = self.testTable.frame;
+            frame.size.width = 1024.0;
+            self.testTable.frame=frame;
+
+        }
 
     }
     else if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) 
     {
+        if (segControl.selectedSegmentIndex == 1) 
+        {
         self.mriView.center = CGPointMake(384.0f, 429.5f);
         [self.mriTable removeFromSuperview];
+        }
     }
+        else if (segControl.selectedSegmentIndex == 0) 
+        {
+        CGRect frame = self.testTable.frame;
+        frame.size.width = 748;
+        self.testTable.frame=frame;
+        }
 }
 
 

@@ -21,6 +21,15 @@
     IBOutlet UIBarButtonItem *deleteButton;
     
     IBOutlet UIView *flexView;
+    
+    IBOutlet UITextField *firstNameField;
+    IBOutlet UITextField *lastNameField;
+    IBOutlet UITextField *bannerIDField;
+    IBOutlet UITextField *hospitalField;
+    IBOutlet UITextField *physicianField;
+
+
+
 
 }
 
